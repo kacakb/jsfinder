@@ -16,8 +16,8 @@ import (
 
 func main() {
 
-	var limit int
-	flag.IntVar(&limit, "c", 25, "concurrency limit")
+	var limit int = 25
+	flag.IntVar(&limit, "c", limit, "concurrency limit")
 
 	var urlsFilePath string
 	flag.StringVar(&urlsFilePath, "l", "", "filename to read URLS from")
