@@ -139,11 +139,14 @@ func main() {
 					if strings.HasSuffix(jsURL, ".js") {
 						if strings.HasPrefix(jsURL, "/") {
 							file.WriteString(fmt.Sprintf("%s%s\n", url, jsURL))
-						} else {
-							file.WriteString(fmt.Sprintf("%s/%s\n", url, jsURL))
+						} else if strings.HasPrefix(jsURL, "https://") {
+							file.WriteString(fmt.Sprintf("%s\n", jsURL))
 						}
+					} else {
+						file.WriteString(fmt.Sprintf("%s/%s\n", url, jsURL))
 					}
 				}
+
 			}
 		}(url)
 	}
