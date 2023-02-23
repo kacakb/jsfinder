@@ -38,7 +38,11 @@ func main() {
 		fmt.Printf("Concurrency limit is runnig default:25")
 	} else {
 
-		fmt.Println("Concurrency limit is running %d\n:", limit)
+		fmt.Printf("Concurrency limit is running %d\n", limit)
+
+		if !silent {
+			fmt.Println("Program is runnining in verbose mode")
+		}
 	}
 	urlsFile, err := os.Open(urlsFilePath)
 	if err != nil {
@@ -89,17 +93,16 @@ func main() {
 
 			// Check status code for successful request
 			if resp.StatusCode != http.StatusOK {
-				fmt.Printf("Error getting response from %s: status code %d\n", url, resp.StatusCode)
+				if !silent {
+					fmt.Printf("Error getting response from %s: status code %d\n", url, resp.StatusCode)
+				}
 				return
 			}
 			//a
 			// Read response body
 			bodyBytes, err := ioutil.ReadAll(resp.Body)
 			if err != nil {
-				if !silent {
-					fmt.Println("Error getting response from", url, "status code", resp.StatusCode)
-				}
-
+				fmt.Println("Error getting response from", url, "status code", resp.StatusCode)
 				return
 			}
 			bodyString := string(bodyBytes)
