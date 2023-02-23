@@ -14,10 +14,10 @@ import (
 )
 
 func main() {
+	//Define flag
 
 	var urlsFilePath string
 	flag.StringVar(&urlsFilePath, "l", "", "filename to read URLS from")
-	// Open url file
 
 	var limit int = 25
 	flag.IntVar(&limit, "c", limit, "concurrency limit")
@@ -107,7 +107,7 @@ func main() {
 				}
 				return
 			}
-			//a
+
 			// Read response body
 			bodyBytes, err := ioutil.ReadAll(resp.Body)
 			if err != nil {
