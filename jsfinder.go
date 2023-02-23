@@ -80,23 +80,30 @@ func main() {
 			}
 			req, err := http.NewRequest("GET", url, nil)
 			if err != nil {
-				fmt.Printf("Error creating request for %s: %v\n", url, err)
+				if !silent {
+					fmt.Printf("Error creating request for %s: %v\n", url, err)
+				}
 				return
+
 			}
 			req.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Safari/537.36")
 
 			// Send GET request to URL
 			resp, err := client.Do(req)
 			if err != nil {
-				fmt.Printf("Error getting response from %s: %v\n", url, err)
+				if !silent {
+					fmt.Printf("Error getting response from %s: %v\n", url, err)
+				}
 				return
 			}
 			defer resp.Body.Close()
 
 			// Check status code for successful request
 			if resp.StatusCode != http.StatusOK {
-				if !silent {
-					fmt.Printf("Error getting response from %s: status code %d\n", url, resp.StatusCode)
+				if err != nil {
+					if !silent {
+						fmt.Printf("Error getting response from %s: status code %d\n", url, resp.StatusCode)
+					}
 				}
 				return
 			}
@@ -104,7 +111,9 @@ func main() {
 			// Read response body
 			bodyBytes, err := ioutil.ReadAll(resp.Body)
 			if err != nil {
-				fmt.Println("Error getting response from", url, "status code", resp.StatusCode)
+				if !silent {
+					fmt.Println("Error getting response from", url, "status code", resp.StatusCode)
+				}
 				return
 			}
 			bodyString := string(bodyBytes)
