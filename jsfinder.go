@@ -37,6 +37,7 @@ func main() {
 
 		fmt.Printf("Concurrency limit is runnig default:25")
 	} else {
+
 		fmt.Println("Concurrency limit is running %d\n:", limit)
 	}
 	urlsFile, err := os.Open(urlsFilePath)
