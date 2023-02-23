@@ -22,7 +22,6 @@ func main() {
 
 	// Channel  goroutines
 	results := make(chan string)
-
 	// Semaphore to limit
 	sem := make(chan struct{}, 50)
 
