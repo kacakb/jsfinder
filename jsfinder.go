@@ -16,15 +16,18 @@ import (
 
 func main() {
 
-	var limit int = 25
-	flag.IntVar(&limit, "c", limit, "concurrency limit")
-
 	var urlsFilePath string
 	flag.StringVar(&urlsFilePath, "l", "", "filename to read URLS from")
 	// Open url file
 
+	var limit int = 25
+	flag.IntVar(&limit, "c", limit, "concurrency limit")
+
 	var silent bool
 	flag.BoolVar(&silent, "s", false, "Program is running in silent mode")
+
+	var outputFile string
+	flag.StringVar(&outputFile, "o", "output.txt", "Filename to write found URLs to")
 
 	flag.Parse()
 
@@ -114,11 +117,21 @@ func main() {
 
 			matches := re.FindAllStringSubmatch(bodyString, -1)
 			if len(matches) > 0 {
-				// Write JavaScript file names to file
-				file, err := os.OpenFile("found.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-				if err != nil {
-					fmt.Printf("Error opening file for writing: %v\n", err)
-					return
+				var file *os.File
+				var err error
+
+				if outputFile != "" {
+					file, err = os.OpenFile(outputFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+					if err != nil {
+						fmt.Printf("Error opening file %s for writing: %v\n", outputFile, err)
+						return
+					}
+				} else {
+					file, err = os.OpenFile("found.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+					if err != nil {
+						fmt.Printf("Error opening file for writing: %v\n", err)
+						return
+					}
 				}
 				defer file.Close()
 
