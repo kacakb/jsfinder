@@ -84,7 +84,7 @@ func main() {
 				fmt.Printf("Error getting response from %s: status code %d\n", url, resp.StatusCode)
 				return
 			}
-
+			//a
 			// Read response body
 			bodyBytes, err := ioutil.ReadAll(resp.Body)
 			if err != nil {
