@@ -103,7 +103,8 @@ func main() {
 				for _, match := range matches {
 					jsURL := match[1]
 					if filepath.Ext(jsURL) == ".js" {
-						fullURL := url + "/" + jsURL
+						fullURL := url + "/" + strings.TrimPrefix(jsURL, "/")
+
 						file.WriteString(fmt.Sprintf("%s\n", fullURL))
 					}
 				}
