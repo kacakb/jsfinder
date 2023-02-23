@@ -7,7 +7,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
-	"path/filepath"
 	"regexp"
 	"strings"
 	"sync"
@@ -137,10 +136,12 @@ func main() {
 
 				for _, match := range matches {
 					jsURL := match[1]
-					if filepath.Ext(jsURL) == ".js" {
-						fullURL := url + "/" + strings.TrimPrefix(jsURL, "/")
-
-						file.WriteString(fmt.Sprintf("%s\n", fullURL))
+					if strings.HasSuffix(jsURL, ".js") {
+						if strings.HasPrefix(jsURL, "/") {
+							file.WriteString(fmt.Sprintf("%s%s\n", url, jsURL))
+						} else {
+							file.WriteString(fmt.Sprintf("%s/%s\n", url, jsURL))
+						}
 					}
 				}
 			}
