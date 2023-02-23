@@ -89,7 +89,7 @@ func main() {
 			bodyBytes, err := ioutil.ReadAll(resp.Body)
 			if err != nil {
 				if !silent {
-					fmt.Printf("Error reading response from %s: %v\n", url, err)
+					fmt.Println("Error getting response from", url, "status code", resp.StatusCode)
 				}
 
 				return
