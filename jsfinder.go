@@ -15,10 +15,16 @@ import (
 
 func main() {
 
-	var filename string
-	flag.StringVar(&filename, "l", "", "filename to read URLS from")
+	var urlsFilePath string
+	flag.StringVar(&urlsFilePath, "l", "", "filename to read URLS from")
 	// Open url file
-	urlsFile, err := os.Open(filename)
+	flag.Parse()
+
+	if urlsFilePath == "" {
+		fmt.Println("Please provide a file containing URLs wtih the -l flag")
+		return
+	}
+	urlsFile, err := os.Open(urlsFilePath)
 	if err != nil {
 		panic(err)
 	}
