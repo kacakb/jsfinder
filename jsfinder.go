@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"flag"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -14,22 +13,20 @@ import (
 )
 
 func main() {
-
-	var filename string
-	flag.StringVar(&filename, "l", "", "filename to read URLS from")
-	// Open url file
-	urlsFile, err := os.Open(filename)
+	// Open URLs file
+	urlsFile, err := os.Open("urllist.txt")
 	if err != nil {
 		panic(err)
 	}
 	defer urlsFile.Close()
 
-	// Channel  goroutines
+	// Channel to collect results from goroutines
 	results := make(chan string)
-	// Semaphore to limit
+
+	// Semaphore to limit number of HTTP requests made at once
 	sem := make(chan struct{}, 50)
 
-	//  wait for all goroutines to finish
+	// Wait group to wait for all goroutines to finish
 	var wg sync.WaitGroup
 
 	// Read URLs file line by line
@@ -42,7 +39,7 @@ func main() {
 		go func(url string) {
 			defer wg.Done()
 
-			//  semaphore
+			// Acquire semaphore
 			sem <- struct{}{}
 			defer func() { <-sem }()
 
@@ -82,7 +79,7 @@ func main() {
 			// Find JavaScript files using regular expression
 			re := regexp.MustCompile(`src="([^"]+\.js)"`)
 
-			//js files usually "src=.js$"
+
 
 			matches := re.FindAllStringSubmatch(bodyString, -1)
 			if len(matches) > 0 {
