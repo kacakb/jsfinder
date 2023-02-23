@@ -20,3 +20,28 @@ func main() {
 	var wg sync.WaitGroup
 
 }
+
+scanner :=bufio.NewScanner(urlsFile)
+for scanner.Scan(){
+	url:=scanner.Text()
+	wg.Add(1)
+
+	go func (url string) {
+
+		defer wg.Done()
+		sem <- struct{}{}
+		defer func(){<-sem}()
+
+		client:= &http.Client{
+			timeout: 5 * time.Second,
+		}
+
+}
+
+
+
+}
+
+
+
+
