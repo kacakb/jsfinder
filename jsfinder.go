@@ -105,6 +105,7 @@ func main() {
 					jsURL := match[1]
 					if filepath.Ext(jsURL) == ".js" {
 						fullURL := url + "/" + strings.TrimPrefix(jsURL, "/")
+
 						file.WriteString(fmt.Sprintf("%s\n", fullURL))
 					}
 				}
