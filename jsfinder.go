@@ -16,9 +16,16 @@ import (
 
 func main() {
 
+	var limit int
+	flag.IntVar(&limit, "c", 25, "concurrency limit")
+
 	var urlsFilePath string
 	flag.StringVar(&urlsFilePath, "l", "", "filename to read URLS from")
 	// Open url file
+
+	var silent bool
+	flag.BoolVar(&silent, "s", false, "Program is running in silent mode")
+
 	flag.Parse()
 
 	if urlsFilePath == "" {
@@ -34,7 +41,7 @@ func main() {
 	// Channel  goroutines
 	results := make(chan string)
 	// Semaphore to limit
-	sem := make(chan struct{}, 50)
+	sem := make(chan struct{}, limit)
 
 	//  wait for all goroutines to finish
 	var wg sync.WaitGroup
@@ -81,7 +88,10 @@ func main() {
 			// Read response body
 			bodyBytes, err := ioutil.ReadAll(resp.Body)
 			if err != nil {
-				fmt.Printf("Error reading response from %s: %v\n", url, err)
+				if !silent {
+					fmt.Printf("Error reading response from %s: %v\n", url, err)
+				}
+
 				return
 			}
 			bodyString := string(bodyBytes)
