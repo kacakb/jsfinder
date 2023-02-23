@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -13,8 +14,11 @@ import (
 )
 
 func main() {
+
+	var filename string
+	flag.StringVar(&filename, "l", "", "filename to read URLS from")
 	// Open url file
-	urlsFile, err := os.Open("urllist.txt")
+	urlsFile, err := os.Open(filename)
 	if err != nil {
 		panic(err)
 	}
