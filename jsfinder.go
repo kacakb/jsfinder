@@ -32,6 +32,13 @@ func main() {
 		fmt.Println("Please provide a file containing URLs wtih the -l flag")
 		return
 	}
+
+	if limit == 25 {
+
+		fmt.Printf("Concurrency limit is runnig default:25")
+	} else {
+		fmt.Println("Concurrency limit is running %d\n:", limit)
+	}
 	urlsFile, err := os.Open(urlsFilePath)
 	if err != nil {
 		panic(err)
