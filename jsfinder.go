@@ -150,7 +150,11 @@ func main() {
 							if strings.Contains(url, ".com") && !strings.HasPrefix(url, "https://") && !strings.HasPrefix(url, "http://") {
 								url = "https://" + strings.TrimPrefix(strings.TrimPrefix(url, "https://"), "http://")
 							}
-							file.WriteString(fmt.Sprintf("%s%s\n", url, jsURL))
+							if strings.Contains(jsURL, ".com") {
+								file.WriteString(fmt.Sprintf("https://%s\n", strings.TrimPrefix(jsURL, "/")))
+							} else {
+								file.WriteString(fmt.Sprintf("%s%s\n", url, jsURL))
+							}
 						} else if strings.HasPrefix(jsURL, "https://") || strings.HasPrefix(jsURL, "http://") {
 							file.WriteString(fmt.Sprintf("%s\n", jsURL))
 						} else if strings.Contains(jsURL, ".com") {
