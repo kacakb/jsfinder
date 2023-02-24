@@ -152,7 +152,7 @@ func main() {
 							file.WriteString(fmt.Sprintf("%s\n", jsURL))
 						} else {
 
-							file.WriteString(fmt.Sprintf("http://%s%s\n", url, jsURL))
+							file.WriteString(fmt.Sprintf("https://%s%s\n", url, jsURL))
 						}
 					} else {
 						file.WriteString(fmt.Sprintf("%s/%s\n", url, jsURL))
