@@ -100,7 +100,6 @@ func main() {
 				}
 				return
 			}
-			//nice
 
 			bodyBytes, err := ioutil.ReadAll(resp.Body)
 			if err != nil {
@@ -111,10 +110,7 @@ func main() {
 			}
 			bodyString := string(bodyBytes)
 
-			// Find JavaScript files using regular expression
 			re := regexp.MustCompile(`src="([^"]+\.js)"`)
-
-			//js files usually "src=.js$"
 
 			matches := re.FindAllStringSubmatch(bodyString, -1)
 			if len(matches) > 0 {
@@ -140,21 +136,29 @@ func main() {
 					jsURL := match[1]
 					if strings.HasSuffix(jsURL, ".js") {
 						if strings.HasPrefix(jsURL, "/") {
-							if strings.Contains(url, ".com") && !strings.HasPrefix(url, "https://") && !strings.HasPrefix(url, "http://") {
-								url = "https://" + strings.TrimPrefix(strings.TrimPrefix(url, "https://"), "http://")
-							}
-							if strings.Contains(jsURL, ".com") {
-								file.WriteString(fmt.Sprintf("https://%s\n", strings.TrimPrefix(jsURL, "/")))
+							if strings.Contains(url, ".com") || strings.Contains(url, ".net") || strings.Contains(url, ".org") {
+								if !strings.HasPrefix(url, "https://") && !strings.HasPrefix(url, "http://") {
+									url = "https://" + strings.TrimPrefix(strings.TrimPrefix(url, "https://"), "http://")
+								}
+								if strings.Contains(jsURL, ".com") || strings.Contains(jsURL, ".net") || strings.Contains(jsURL, ".org") {
+									file.WriteString(fmt.Sprintf("https://%s\n", strings.TrimPrefix(jsURL, "/")))
+								} else {
+									file.WriteString(fmt.Sprintf("%s%s\n", url, jsURL))
+								}
 							} else {
-								file.WriteString(fmt.Sprintf("%s%s\n", url, jsURL))
+								file.WriteString(fmt.Sprintf("%s/%s\n", url, jsURL))
 							}
 						} else if strings.HasPrefix(jsURL, "https://") || strings.HasPrefix(jsURL, "http://") {
 							file.WriteString(fmt.Sprintf("%s\n", jsURL))
-						} else if strings.Contains(jsURL, ".com") {
+						} else if strings.Contains(jsURL, ".com") || strings.Contains(jsURL, ".net") || strings.Contains(jsURL, ".org") {
 							if strings.Contains(jsURL, ".com/") {
 								file.WriteString(fmt.Sprintf("https://%s%s\n", jsURL[:strings.Index(jsURL, ".com")+4], jsURL[strings.Index(jsURL, ".com")+4:]))
+							} else if strings.Contains(jsURL, ".net/") {
+								file.WriteString(fmt.Sprintf("https://%s%s\n", jsURL[:strings.Index(jsURL, ".net")+4], jsURL[strings.Index(jsURL, ".net")+4:]))
+							} else if strings.Contains(jsURL, ".org/") {
+								file.WriteString(fmt.Sprintf("https://%s%s\n", jsURL[:strings.Index(jsURL, ".org")+4], jsURL[strings.Index(jsURL, ".org")+4:]))
 							} else {
-								file.WriteString(fmt.Sprintf("https://%s/%s\n", jsURL[:strings.Index(jsURL, ".com")+4], jsURL[strings.Index(jsURL, ".com")+4:]))
+								file.WriteString(fmt.Sprintf("https://%s/%s\n", jsURL[:strings.Index(jsURL, ".")+4], jsURL[strings.Index(jsURL, ".")+4:]))
 							}
 						} else {
 							file.WriteString(fmt.Sprintf("%s/%s\n", url, jsURL))
@@ -168,7 +172,6 @@ func main() {
 		}(url)
 	}
 
-	// Wait for all goroutines to complete and print results
 	wg.Wait()
 	close(results)
 }
