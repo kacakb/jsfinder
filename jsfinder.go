@@ -147,6 +147,9 @@ func main() {
 					jsURL := match[1]
 					if strings.HasSuffix(jsURL, ".js") {
 						if strings.HasPrefix(jsURL, "/") {
+							if strings.Contains(url, ".com") && !strings.HasPrefix(url, "https://") && !strings.HasPrefix(url, "http://") {
+								url = "https://" + strings.TrimPrefix(strings.TrimPrefix(url, "https://"), "http://")
+							}
 							file.WriteString(fmt.Sprintf("%s%s\n", url, jsURL))
 						} else if strings.HasPrefix(jsURL, "https://") || strings.HasPrefix(jsURL, "http://") {
 							file.WriteString(fmt.Sprintf("%s\n", jsURL))
