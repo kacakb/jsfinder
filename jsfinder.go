@@ -145,14 +145,14 @@ func main() {
 
 				for _, match := range matches {
 					jsURL := match[1]
-					if strings.Contains(jsURL, ".js") && strings.Contains(jsURL, ".com") && !strings.HasPrefix(jsURL, "https://") {
-						file.WriteString(fmt.Sprintf("https://%s\n", jsURL))
-					} else if strings.HasSuffix(jsURL, ".js") {
+					if strings.HasSuffix(jsURL, ".js") {
 						if strings.HasPrefix(jsURL, "/") {
-							jsURL = strings.TrimPrefix(jsURL, "/")
 							file.WriteString(fmt.Sprintf("%s%s\n", url, jsURL))
-						} else if strings.HasPrefix(jsURL, "https://") {
+						} else if strings.HasPrefix(jsURL, "https://") || strings.HasPrefix(jsURL, "https://") {
 							file.WriteString(fmt.Sprintf("%s\n", jsURL))
+						} else {
+
+							file.WriteString(fmt.Sprintf("http://%s%s\n", url, jsURL))
 						}
 					} else {
 						file.WriteString(fmt.Sprintf("%s/%s\n", url, jsURL))
