@@ -148,11 +148,16 @@ func main() {
 					if strings.HasSuffix(jsURL, ".js") {
 						if strings.HasPrefix(jsURL, "/") {
 							file.WriteString(fmt.Sprintf("%s%s\n", url, jsURL))
-						} else if strings.HasPrefix(jsURL, "https://") || strings.HasPrefix(jsURL, "https://") {
+						} else if strings.HasPrefix(jsURL, "https://") || strings.HasPrefix(jsURL, "http://") {
 							file.WriteString(fmt.Sprintf("%s\n", jsURL))
+						} else if strings.Contains(jsURL, ".com") {
+							if strings.Contains(jsURL, ".com/") {
+								file.WriteString(fmt.Sprintf("https://%s%s\n", jsURL[:strings.Index(jsURL, ".com")+4], jsURL[strings.Index(jsURL, ".com")+4:]))
+							} else {
+								file.WriteString(fmt.Sprintf("https://%s/%s\n", jsURL[:strings.Index(jsURL, ".com")+4], jsURL[strings.Index(jsURL, ".com")+4:]))
+							}
 						} else {
-
-							file.WriteString(fmt.Sprintf("https://%s%s\n", url, jsURL))
+							file.WriteString(fmt.Sprintf("%s/%s\n", url, jsURL))
 						}
 					} else {
 						file.WriteString(fmt.Sprintf("%s/%s\n", url, jsURL))
