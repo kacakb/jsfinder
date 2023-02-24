@@ -14,8 +14,6 @@ import (
 )
 
 func main() {
-	//Define flag
-
 	var urlsFilePath string
 	flag.StringVar(&urlsFilePath, "l", "", "filename to read URLS from")
 
@@ -43,7 +41,9 @@ func main() {
 		fmt.Printf("Concurrency limit is running %d\n", limit)
 
 		if !silent {
-			fmt.Println("Program is runnining in verbose mode")
+			fmt.Println("Verbose mode active")
+		} else {
+			fmt.Println("Silent mode active ")
 		}
 	}
 	urlsFile, err := os.Open(urlsFilePath)
@@ -52,15 +52,12 @@ func main() {
 	}
 	defer urlsFile.Close()
 
-	// Channel  goroutines
 	results := make(chan string)
-	// Semaphore to limit
+
 	sem := make(chan struct{}, limit)
 
-	//  wait for all goroutines to finish
 	var wg sync.WaitGroup
 
-	// Read URLs file line by line
 	scanner := bufio.NewScanner(urlsFile)
 	for scanner.Scan() {
 		url := scanner.Text()
@@ -70,11 +67,9 @@ func main() {
 		go func(url string) {
 			defer wg.Done()
 
-			//  semaphore
 			sem <- struct{}{}
 			defer func() { <-sem }()
 
-			// Create HTTP client with custom User-Agent header and timeout
 			client := &http.Client{
 				Timeout: 5 * time.Second,
 			}
@@ -88,7 +83,6 @@ func main() {
 			}
 			req.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Safari/537.36")
 
-			// Send GET request to URL
 			resp, err := client.Do(req)
 			if err != nil {
 				if !silent {
@@ -98,7 +92,6 @@ func main() {
 			}
 			defer resp.Body.Close()
 
-			// Check status code for successful request
 			if resp.StatusCode != http.StatusOK {
 				if err != nil {
 					if !silent {
@@ -108,7 +101,7 @@ func main() {
 				return
 			}
 			//nice
-			// Read response body
+
 			bodyBytes, err := ioutil.ReadAll(resp.Body)
 			if err != nil {
 				if !silent {
