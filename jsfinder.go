@@ -107,7 +107,7 @@ func main() {
 				}
 				return
 			}
-
+			//nice
 			// Read response body
 			bodyBytes, err := ioutil.ReadAll(resp.Body)
 			if err != nil {
