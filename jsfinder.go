@@ -14,6 +14,7 @@ import (
 )
 
 func main() {
+
 	var urlsFilePath string
 	flag.StringVar(&urlsFilePath, "l", "", "filename to read URLS from")
 
@@ -141,9 +142,21 @@ func main() {
 									url = "https://" + strings.TrimPrefix(strings.TrimPrefix(url, "https://"), "http://")
 								}
 								if strings.Contains(jsURL, ".com") || strings.Contains(jsURL, ".net") || strings.Contains(jsURL, ".org") {
-									file.WriteString(fmt.Sprintf("https://%s\n", strings.TrimPrefix(jsURL, "/")))
+									if strings.HasPrefix(jsURL, "//") {
+										file.WriteString(fmt.Sprintf("https:%s\n", jsURL))
+									} else {
+										file.WriteString(fmt.Sprintf("https://%s\n", strings.TrimPrefix(jsURL, "/")))
+									}
 								} else {
-									file.WriteString(fmt.Sprintf("%s%s\n", url, jsURL))
+									if strings.HasPrefix(jsURL, "/") {
+										file.WriteString(fmt.Sprintf("%s%s\n", url, jsURL))
+									} else if strings.HasPrefix(jsURL, "https://") || strings.HasPrefix(jsURL, "http://") {
+										file.WriteString(fmt.Sprintf("%s\n", jsURL))
+									} else if strings.HasPrefix(jsURL, "//") {
+										file.WriteString(fmt.Sprintf("https:%s\n", jsURL))
+									} else {
+										file.WriteString(fmt.Sprintf("https://%s\n", jsURL))
+									}
 								}
 							} else {
 								file.WriteString(fmt.Sprintf("%s/%s\n", url, jsURL))
