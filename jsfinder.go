@@ -30,7 +30,7 @@ func main() {
 	flag.Parse()
 
 	if urlsFilePath == "" {
-		fmt.Println("Please provide a file containing URLs wtih the -l flag")
+		fmt.Println("Please provide a file containing URLs with the -l flag")
 		return
 	}
 
