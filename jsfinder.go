@@ -188,3 +188,5 @@ func main() {
 	wg.Wait()
 	close(results)
 }
+
+//Diamond
