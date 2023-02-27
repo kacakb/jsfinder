@@ -35,18 +35,20 @@ func main() {
 	}
 
 	if limit == 25 {
-
-		fmt.Printf("Concurrency limit is runnig default:25")
-	} else {
-
-		fmt.Printf("Concurrency limit is running %d\n", limit)
-
 		if !silent {
+			fmt.Printf("Concurrency limit is running default: %d\n", limit)
+			fmt.Println("Verbose mode active")
+		}
+	} else {
+		if !silent {
+			fmt.Printf("Concurrency limit is running %d\n", limit)
 			fmt.Println("Verbose mode active")
 		} else {
-			fmt.Println("Silent mode active ")
+			fmt.Printf("Concurrency limit is running %d\n", limit)
+			fmt.Println("Silent mode active")
 		}
 	}
+
 	urlsFile, err := os.Open(urlsFilePath)
 	if err != nil {
 		panic(err)
