@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"crypto/tls"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -18,7 +19,7 @@ func main() {
 	var urlsFilePath string
 	flag.StringVar(&urlsFilePath, "l", "", "filename to read URLS from")
 
-	var limit int = 25
+	var limit int = 20
 	flag.IntVar(&limit, "c", limit, "concurrency limit")
 
 	var silent bool
@@ -27,7 +28,19 @@ func main() {
 	var outputFile string
 	flag.StringVar(&outputFile, "o", "output.txt", "Filename to write found URLs to")
 
+	var readURLs bool
+	flag.BoolVar(&readURLs, "read", false, "Read URLs from stdin")
+
 	flag.Parse()
+
+	if readURLs && urlsFilePath != "" {
+		fmt.Println("Cannot use -l and -read flags together")
+		return
+	}
+
+	if readURLs {
+		urlsFilePath = os.Stdin.Name()
+	}
 
 	if urlsFilePath == "" {
 		fmt.Println("Please provide a file containing URLs with the -l flag")
@@ -35,25 +48,34 @@ func main() {
 	}
 
 	if limit == 25 {
+		fmt.Println("Concurrency limit is running default: 20")
 		if !silent {
-			fmt.Printf("Concurrency limit is running default: %d\n", limit)
 			fmt.Println("Verbose mode active")
+			fmt.Println("Concurrency limit is running default: 20")
+		} else {
+			fmt.Println("Silent mode active")
 		}
 	} else {
 		if !silent {
-			fmt.Printf("Concurrency limit is running %d\n", limit)
 			fmt.Println("Verbose mode active")
-		} else {
 			fmt.Printf("Concurrency limit is running %d\n", limit)
-			fmt.Println("Silent mode active")
+		} else {
+			fmt.Printf("Silent mode active\nConcurrency limit is running %d\n", limit)
 		}
 	}
 
-	urlsFile, err := os.Open(urlsFilePath)
-	if err != nil {
-		panic(err)
+	var urlsFile *os.File
+	var err error
+
+	if readURLs {
+		urlsFile = os.Stdin
+	} else {
+		urlsFile, err = os.Open(urlsFilePath)
+		if err != nil {
+			panic(err)
+		}
+		defer urlsFile.Close()
 	}
-	defer urlsFile.Close()
 
 	results := make(chan string)
 
@@ -74,7 +96,10 @@ func main() {
 			defer func() { <-sem }()
 
 			client := &http.Client{
-				Timeout: 5 * time.Second,
+				Transport: &http.Transport{
+					TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+				},
+				Timeout: 7 * time.Second,
 			}
 			req, err := http.NewRequest("GET", url, nil)
 			if err != nil {
