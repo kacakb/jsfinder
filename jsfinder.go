@@ -53,11 +53,10 @@ func main() {
 		fmt.Println("Reading URLs from file:", urlsFilePath)
 	}
 
-	if limit == 25 {
+	if limit == 20 {
 		fmt.Println("Concurrency limit is running default: 20")
 		if !silent {
 			fmt.Println("Verbose mode active")
-			fmt.Println("Concurrency limit is running default: 20")
 		} else {
 			fmt.Println("Silent mode active")
 		}
@@ -144,7 +143,7 @@ func main() {
 			}
 			bodyString := string(bodyBytes)
 
-			re := regexp.MustCompile(`(?i)(?:src|srcdoc|formaction|dynsrc|standby|ng-include|ui-sref|href|data-main|data|onclick|onload|style|srcdoc|formaction|iframe|object|background|input|button|action|dynsrc|srcset|manifest|code|archive|classid|cite|codebase|longdesc|lowsrc|usemap|standby|ng-click|ng-src|ng-inlude|ui-sref|require)\s*=\s*["']([^"']*\.js)["']`)
+			re := regexp.MustCompile(`(?i)(?:src|iframe|srcdoc|frame|formaction|dynsrc|standby|ng-include|ui-sref|href|data-main|data|onclick|onload|style|srcdoc|formaction|iframe|object|background|input|button|action|dynsrc|srcset|manifest|code|archive|classid|cite|codebase|longdesc|lowsrc|usemap|standby|ng-click|ng-src|ng-inlude|ui-sref|require)\s*=\s*["']([^"']*\.js\??[^"']*)["']|(?:<script[^>]*?>)([^<]*?\.js[^<]*?)(?:</script>)`)
 
 			matches := re.FindAllStringSubmatch(bodyString, -1)
 			if len(matches) > 0 {
