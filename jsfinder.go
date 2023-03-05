@@ -42,9 +42,15 @@ func main() {
 		urlsFilePath = os.Stdin.Name()
 	}
 
-	if urlsFilePath == "" {
-		fmt.Println("Please provide a file containing URLs with the -l flag")
+	if !readURLs && urlsFilePath == "" {
+		fmt.Println("Please provide a file containing URLs with the -l flag or use -read flag to read from stdin")
 		return
+
+	} else if readURLs && urlsFilePath == "" {
+		fmt.Println("Please provide a list of URLs t3o scan:")
+		return
+	} else {
+		fmt.Println("Reading URLs from file:", urlsFilePath)
 	}
 
 	if limit == 25 {
