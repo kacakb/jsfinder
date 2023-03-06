@@ -30,7 +30,7 @@ JSFinder is useful for web developers and security professionals who want to fin
   <li>Running <strong>multiple</strong> HTTP GET requests concurrently to each URL.</li>
   <li>Limiting the <strong>concurrency</strong> of HTTP GET requests using a  flag.</li>
   <li>Using a <strong>regular expression</strong> to search for JavaScript files in the response body of the HTTP GET requests.</li>
-      <li>Writing the found JavaScript files to a file specified in the command line arguments or to a default file named "output.txt".</li>
+  <li><strong>Writing the found JavaScript files</strong> to a file specified in the command line arguments or to a default file named "output.txt".</li>
       <li>Printing informative messages to the console indicating the status of the program's execution and the output file's location.</li>
       <li>Allowing the program to run in verbose or silent mode using a flag.</li>
    </ul>
