@@ -10,7 +10,7 @@
   </p>
   <p>
     <a href="#features">Features</a> |
-    <a href="#deml">Demo</a> |
+    <a href="#demo">Demo</a> |
     <a href="#usage">Usage</a> |
     <a href="#contributing">Contributing</a> |
     <a href="#license">License</a> |
@@ -34,3 +34,6 @@ JSFinder is useful for web developers and security professionals who want to fin
   <li><strong>Printing informative messages to the console</strong> indicating the status of the program's execution and the output file's location.</li>
   <li>Allowing the program to run in <strong>verbose or silent mode</strong> using a flag.</li>
    </ul>
+   
+   <h2 id="demo">Demo</h2>
+asd
