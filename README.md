@@ -58,7 +58,5 @@ JSFinder is useful for web developers and security professionals who want to fin
 
  <h2 id="demo">Demo</h2>
 
-<video width="320" height="240" controls>
-  <source src="(https://asciinema.org/a/Ehtbcwy1IEoRqfXnROQG2brAa)" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[![Demo](https://asciinema.org/a/Ehtbcwy1IEoRqfXnROQG2brAa.svg)](https://asciinema.org/a/Ehtbcwy1IEoRqfXnROQG2brAa)
+
