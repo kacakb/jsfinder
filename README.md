@@ -82,7 +82,7 @@ If you want to read from a file, you should specify it with the -l flag and use 
 <ul>
   <li>Adding new features</li>
   <li>Improving performance</li>
-  <li>Integrating the  tool (coming soon)
+  <li>Integrating the <a href="https://github.com/kacakb/kacak"><button>kacak</button></a> tool (coming soon)
 </li>
    </ul>
 
