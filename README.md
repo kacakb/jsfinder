@@ -86,5 +86,7 @@ If you want to read from a file, you should specify it with the -l flag and use 
 </li>
    </ul>
 
+<h2>Screenshot</h2>
+
 <h2 id="contact">Contact</h2>
 <p>If you have any questions, feedback or collaboration suggestions related to this project, please feel free to contact me via:</p><a href="mailto:kacakbatuhan@protonmail.com"><button>e-mail</button></a>
