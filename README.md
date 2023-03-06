@@ -36,5 +36,5 @@ JSFinder is useful for web developers and security professionals who want to fin
   <li>Allowing the program to run in <strong>verbose or silent mode</strong> using a flag.</li>
    </ul>
    
-   <h2 id="demo">Demo</h2>
+   <h2 id="installation">Installation</h2>
 asd
