@@ -43,5 +43,4 @@ JSFinder is useful for web developers and security professionals who want to fin
   <code class="language-go">
     go install -v github.com/kacakb/jsfinder@latest
   </code>
-  <button class="btn" data-clipboard-text="go install -v github.com/kacakb/jsfinder@latest"></button>
-</pre>
+  <button class="btn" data-clipboard-text="go install -v github.com/kacakb/jsfinder@latest"></button></pre>
