@@ -77,4 +77,5 @@ If you want to read from a file, you should specify it with the -l flag and use 
   <pre><code class="language-go">jsfinder -l list.txt -c 50 -s -o js.txt</code><button class="btn" data-clipboard-text="jsfinder -l list.txt -c 50 -s -o js.txt"></button></pre>
 
 
-
+<h2 id="license">Licemse</h2>
+This project is licensed under the [insert license name here] license - see the [LICENSE](LICENSE) file for details.
