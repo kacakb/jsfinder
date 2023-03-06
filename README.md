@@ -4,7 +4,6 @@
   </p>
   <p>
     <a href="https://golang.org/doc/go1.20"><img src="https://img.shields.io/badge/Go-v1.20-blue"></a>
-    <a href="https://github.com/kacakb/jsfinder/releases"><img src="https://img.shields.io/badge/releases-latest-brightgreen.svg"></a>
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
     <a href="https://github.com/kacakb/jsfinder/issues"><img src="https://img.shields.io/badge/Issues-Welcome-blueviolet"></a>
   </p>
