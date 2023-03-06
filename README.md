@@ -40,7 +40,9 @@ JSFinder is useful for web developers and security professionals who want to fin
    
    jsfinder requires Go 1.20 to install successfully.Run the following command to get the repo :
    
+  <pre>
   <code class="language-go">
     go install -v github.com/kacakb/jsfinder@latest
   </code>
-  <button class="btn" data-clipboard-text="go install -v github.com/kacakb/jsfinder@latest"></button></pre>
+  <button class="btn" data-clipboard-text="go install -v github.com/kacakb/jsfinder@latest">Kopyala</button>
+</pre>
