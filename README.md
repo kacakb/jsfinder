@@ -82,7 +82,8 @@ If you want to read from a file, you should specify it with the -l flag and use 
 <ul>
   <li>Adding new features</li>
   <li>Improving performance</li>
-  <li>Integrating link tool</li>
+  <li>Integrating the  tool (coming soon)
+</li>
    </ul>
 
 <h2 id="contact">Contact</h2>
