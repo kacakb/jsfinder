@@ -58,13 +58,13 @@ JSFinder is useful for web developers and security professionals who want to fin
 
  <h2 id="demo">Demo</h2>
 
-## Demo I
+##I
 
 [![Demo](https://asciinema.org/a/Ehtbcwy1IEoRqfXnROQG2brAa.svg)](https://asciinema.org/a/Ehtbcwy1IEoRqfXnROQG2brAa)
 
 &nbsp;
 
-## Demo II
+##II
 
 [![Demo](https://asciinema.org/a/dOtV2XrdtsqFzkYEyqvPb9mrY.svg)](https://asciinema.org/a/dOtV2XrdtsqFzkYEyqvPb9mrY)
 
