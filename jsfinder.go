@@ -47,7 +47,7 @@ func main() {
 		return
 
 	} else if readURLs && urlsFilePath == "" {
-		fmt.Println("Please provide a list of URLs t3o scan:")
+		fmt.Println("Please provide a list of URLs to scan:")
 		return
 	} else {
 		fmt.Println("Reading URLs from file:", urlsFilePath)
@@ -143,7 +143,8 @@ func main() {
 			}
 			bodyString := string(bodyBytes)
 
-			re := regexp.MustCompile(`(?i)(?:src|srcdoc|formaction|dynsrc|standby|ng-include|ui-sref|href|data-main|data|onclick|onload|style|formaction|iframe|object|background|input|button|action|srcset|code|archive|classid|cite|codebase|longdesc|lowsrc|usemap|standby|ng-click|ng-src|ng-include|ui-sref|require|createElement|appendChild|innerHTML|getScript|XMLHttpRequest|fetch|import|onerror|WebSocket|ServiceWorker|SharedWorker|importScripts|eval)\s*=\s*["']([^"']*\.(js))(?:\?.*?)?["']`)
+			re := regexp.MustCompile(`(?i)(?:src|srcdoc|formaction|dynsrc|standby|ng-include|ui-sref|href|data-main|data|onclick|onload|style|srcdoc|formaction|iframe|object|background|input|button|action|dynsrc|srcset|manifest|code|archive|classid|cite|codebase|longdesc|lowsrc|usemap|standby|ng-click|ng-src|ng-inlude|ui-sref|require|createElement|appendChild|innerHTML|getScript|XMLHttpRequest|fetch|import|onerror|WebSocket|ServiceWorker|SharedWorker|importScripts|eval)\s*=\s*["']([^"']*\.js(\?[^"']*)?)["']`)
+
 			matches := re.FindAllStringSubmatch(bodyString, -1)
 			if len(matches) > 0 {
 				var file *os.File
@@ -166,7 +167,8 @@ func main() {
 
 				for _, match := range matches {
 					jsURL := match[1]
-					if strings.HasSuffix(jsURL, ".js") {
+					if strings.HasSuffix(jsURL, ".js") || strings.Contains(jsURL, ".js?") {
+
 						if strings.HasPrefix(jsURL, "/") {
 							if strings.Contains(url, ".com") || strings.Contains(url, ".net") || strings.Contains(url, ".org") {
 								if !strings.HasPrefix(url, "https://") && !strings.HasPrefix(url, "http://") {
