@@ -48,11 +48,6 @@ JSFinder is useful for web developers and security professionals who want to fin
 
 <pre><code class="language-go">jsfinder -h </code><button class="btn" data-clipboard-text="jsfinder -h"></button></pre>
 
-Flag	Description	Usage
--l	Specifies the filename to read URLs from	-l <filename>
--c	Specifies the maximum number of concurrent requests to be made. The default value is 20	-c <number>
--s	Runs the program in silent mode. If this flag is not set, the program runs in verbose mode	-s
--o	Specifies the filename to write found URLs to. The default filename is output.txt	-o <filename>
--read	Reads URLs from stdin instead of a file specified by the -l flag	-read
+
 
  
