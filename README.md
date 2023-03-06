@@ -23,4 +23,10 @@ JSFinder is useful for web developers and security professionals who want to fin
 
 
 <h2 id="features">Features</h2>
-
+Reads URLs from a file or from stdin using command line arguments.
+Runs multiple HTTP GET requests concurrently to each URL.
+Limits the concurrency of HTTP GET requests using a flag.
+Uses a regular expression to search for JavaScript files in the response body of the HTTP GET requests.
+Writes the found JavaScript files to a file specified in the command line arguments or to a default file named "output.txt".
+Prints informative messages to the console indicating the status of the program's execution and the output file's location.
+Allows the program to run in verbose or silent mode using a flag.
