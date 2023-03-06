@@ -74,4 +74,5 @@ If you want to read from a file, you should specify it with the -l flag and use 
   If you want to read from a file, you should specify it with the -l flag and use this command:
   <pre><code class="language-go">jsfinder -l list.txt -c 50 -s -o js.txt</code><button class="btn" data-clipboard-text="jsfinder -l list.txt -c 50 -s -o js.txt"></button></pre>
 
-
+<h2 id="contact">Contact</h2>
+If you have any questions, feedback or collaboration suggestions related to this project, please feel free to contact me via kacakbatuhan@protonmail.com
