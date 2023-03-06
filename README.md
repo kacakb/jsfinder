@@ -18,3 +18,7 @@
 </div>
 
 <h2 id="features">Features</h2>
+
+JSFinder is a command-line tool written in Go that scans web pages to find JavaScript files linked in the HTML source code. It searches for any attribute that can contain a JavaScript file (e.g., src, href, data-main, etc.) and extracts the URLs of the files to a text file. The tool is designed to be simple to use, and it supports reading URLs from a file or from standard input.
+
+JSFinder is useful for web developers and security professionals who want to find and analyze the JavaScript files used by a web application. By analyzing the JavaScript files, it's possible to understand the functionality of the application and detect any security vulnerabilities or sensitive information leakage.
