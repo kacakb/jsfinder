@@ -54,9 +54,9 @@ JSFinder is useful for web developers and security professionals who want to fin
 | -c | Specifies the maximum number of concurrent requests to be made. The default value is 20.
 | -s | Runs the program in silent mode. If this flag is not set, the program runs in verbose mode.
 | -o | Specifies the filename to write found URLs to. The default filename is output.txt.
-| -read | Reads URLs from stdin instead of a file specified by the -l flag. | `cat urls.txt
+| -read | Reads URLs from stdin instead of a file specified by the -l flag.
 
  <h2 id="demo">Demo</h2>
 
-asdsa
+![video](https://asciinema.org/a/UjzmhuL88AoctprK0URFzx76z)
  
