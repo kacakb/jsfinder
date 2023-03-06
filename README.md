@@ -46,8 +46,3 @@ go install -v github.com/kacakb/jsfinder@latest
 </code>
 <button class="btn" data-clipboard-target="#copy-code">Copy</button>
 </pre>
-
-<script>
-// Bu kısım da HTML dosyanızın en altına eklenir
-var clipboard = new ClipboardJS('.btn');
-</script>
