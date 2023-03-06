@@ -12,7 +12,6 @@
     <a href="#installation">Installation</a> |
     <a href="#usage">Usage</a> |
     <a href="#demo">Demo</a> |
-    <a href="#license">License</a> |
     <a href="#contact">Contact</a>
   </p>
 </div>
@@ -76,5 +75,3 @@ If you want to read from a file, you should specify it with the -l flag and use 
   <pre><code class="language-go">jsfinder -l list.txt -c 50 -s -o js.txt</code><button class="btn" data-clipboard-text="jsfinder -l list.txt -c 50 -s -o js.txt"></button></pre>
 
 
-<h2 id="license">License</h2>
-This project is licensed under the
