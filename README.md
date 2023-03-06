@@ -88,5 +88,9 @@ If you want to read from a file, you should specify it with the -l flag and use 
 
 <h2>Screenshot</h2>
 
+![yakında](https://user-images.githubusercontent.com/64865400/223185651-41ecb6b6-86a6-4f40-9d4f-29ae0bb2bda1.png)
+
+
+
 <h2 id="contact">Contact</h2>
 <p>If you have any questions, feedback or collaboration suggestions related to this project, please feel free to contact me via:</p><a href="mailto:kacakbatuhan@protonmail.com"><button>e-mail</button></a>
