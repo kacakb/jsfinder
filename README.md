@@ -10,6 +10,7 @@
   </p>
   <p>
     <a href="#features">Features</a> |
+    <a href="#deml">Demo</a> |
     <a href="#usage">Usage</a> |
     <a href="#contributing">Contributing</a> |
     <a href="#license">License</a> |
