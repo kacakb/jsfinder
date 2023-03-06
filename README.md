@@ -43,5 +43,8 @@ JSFinder is useful for web developers and security professionals who want to fin
   <pre><code class="language-go">go install -v github.com/kacakb/jsfinder@latest</code><button class="btn" data-clipboard-text="go install -v github.com/kacakb/jsfinder@latest"></button></pre>
 
 <h2 id="usage">Usage</h2>
- <pre><code class="language-go">jsfinder -h </code><button class="btn" data-clipboard-text="jsfinder -h"></button></pre>
+
+<p>To see which flags you can use with the tool, use the -h flag.</p>
+
+<pre><code class="language-go">jsfinder -h </code><button class="btn" data-clipboard-text="jsfinder -h"></button></pre>
  
