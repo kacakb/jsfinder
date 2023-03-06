@@ -14,7 +14,8 @@
     <a href="#installation">Installation</a> |
     <a href="#usage">Usage</a> |
     <a href="#demo">Demo</a> |
-    <a href="#contact">Contact</a>
+    <a href="#todos">TODOs</a>|
+    <a href="#contact">Contact</a> 
   </p>
 </div>
 
