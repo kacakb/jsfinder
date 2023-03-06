@@ -26,7 +26,7 @@ JSFinder is useful for web developers and security professionals who want to fin
 <h2 id="features">Features</h2>
 
 <ul>
-  <li>Reading URLs from a file or from <b>stdin</b> using command line arguments.</li>
+  <li>Reading URLs from a file or from <strong>stdin</strong> using command line arguments.</li>
       <li>Running multiple HTTP GET requests concurrently to each URL.</li>
       <li>Limiting the concurrency of HTTP GET requests using a  flag.</li>
       <li>Using a regular expression to search for JavaScript files in the response body of the HTTP GET requests.</li>
