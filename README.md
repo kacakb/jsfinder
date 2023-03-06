@@ -73,5 +73,9 @@ If you want to read from stdin and run the program in silent mode, use this comm
 
 If you want to read from a file, you should specify it with the -l flag and use this command:
   <pre><code class="language-go">jsfinder -l list.txt -s -o js.txt</code><button class="btn" data-clipboard-text="jsfinder -l list.txt -s -o js.txt"></button></pre>
+  You can also specify the concurrency with the -c flag.The default value is 20.
+  If you want to read from a file, you should specify it with the -l flag and use this command:
+  <pre><code class="language-go">jsfinder -l list.txt -c 50 -s -o js.txt</code><button class="btn" data-clipboard-text="jsfinder -l list.txt -c 50 -s -o js.txt"></button></pre>
+
 
 
