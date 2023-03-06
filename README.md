@@ -4,4 +4,3 @@
   <br>
 </h1>
 
-![logo](https://user-images.githubusercontent.com/64865400/223094742-7bf11bdd-9c9b-4d7e-9e67-8065d60e38fd.png)
