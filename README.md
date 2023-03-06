@@ -38,6 +38,6 @@ JSFinder is useful for web developers and security professionals who want to fin
    
    <h2 id="installation">Installation</h2>
    
-   jsfinder requires Go 1.18 to install successfully.Run the following command to get the repo :
+   jsfinder requires Go 1.20 to install successfully.Run the following command to get the repo :
    
    ```go install -v github.com/kacakb/jsfinder@latest```
