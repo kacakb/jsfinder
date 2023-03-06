@@ -1,6 +1,3 @@
-<h1 align="center">
-  <br>
-  <img src="https://user-images.githubusercontent.com/64865400/223091301-f52756ce-8ba9-4302-a02b-6c5970bbcac1.png" alt="logo" width="200">
-  <br>
-</h1>
+
+![Logo](https://user-images.githubusercontent.com/64865400/223095605-38da9d6b-c9fa-4bfd-976a-8ed68a2812c2.png)
 
