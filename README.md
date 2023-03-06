@@ -62,7 +62,7 @@ JSFinder is useful for web developers and security professionals who want to fin
 
 [![Demo](https://asciinema.org/a/Ehtbcwy1IEoRqfXnROQG2brAa.svg)](https://asciinema.org/a/Ehtbcwy1IEoRqfXnROQG2brAa)
 
-If you want to read from stdin and run the program in silent mode, use the -read flag and run this command:
+If you are going to read from stdin, you can use the -read flag and use this command:
   <pre><code class="language-go">cat list.txt| jsfinder -read -s -o js.txt</code><button class="btn" data-clipboard-text="cat list.txt| jsfinder -read -s -o js.txt"></button></pre>
 
 &nbsp;
