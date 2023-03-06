@@ -7,4 +7,11 @@
     <a href="https://github.com/kacakb/jsfinder/releases"><img src="https://img.shields.io/badge/releases-latest-brightgreen.svg"></a>
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
   </p>
+  <p>
+    <a href="#features">Features</a> |
+    <a href="#usage">Usage</a> |
+    <a href="#contributing">Contributing</a> |
+    <a href="#license">License</a> |
+    <a href="#contact">Contact</a>
+  </p>
 </div>
