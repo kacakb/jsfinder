@@ -16,3 +16,5 @@
     <a href="#contact">Contact</a>
   </p>
 </div>
+
+<h2 id="features">Features</h2>
