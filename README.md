@@ -1,8 +1,7 @@
 <div align="center">
   <p>
-    <img src="https://user-images.githubusercontent.com/64865400/223336864-020fc781-8d21-427c-a1b2-f3fa9db27e54.mp4" alt="Logo">
-    
-    
+    ![alt text](https://user-images.githubusercontent.com/64865400/223337346-5973cad2-16d1-46cb-8d09-d88647a6b6ef.mp4)
+        
   </p>
   <p>
     <a href="https://golang.org/doc/go1.20"><img src="https://img.shields.io/badge/Go-v1.20-blue"></a>
