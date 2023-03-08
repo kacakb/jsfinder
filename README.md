@@ -83,6 +83,8 @@ If you want to read from a file, you should specify it with the -l flag and use 
 <ul>
   <li>Adding new features</li>
   <li>Improving performance</li>
+  <li>Adding a cookie flag</li>
+  <li>Reading regex from a file</li>
   <li>Integrating the <a href="https://github.com/kacakb/kacak"><button>kacak</button></a> tool (coming soon)
 </li>
    </ul>
